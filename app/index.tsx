@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import Metrics from "../constants/Metrics"
-import { IconSymbol } from "@/app-example/components/ui/IconSymbol.ios"
-import { FlatList, ScrollView } from "react-native-gesture-handler"
+import { FlatList } from "react-native-gesture-handler"
 import ExpenseCard from "../components/ExpenseCard"
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6"
 
@@ -31,10 +30,9 @@ export default function index() {
   ]
 
   useEffect(() => {
-    expenses.map((item) => {
-      setTotal((prev) => prev + item.amount)
-    })
-  }, [])
+    const sum = expenses.reduce((acc, item) => acc + item.amount, 0)
+    setTotal(sum)
+  }, [expenses])
 
   return (
     <View
