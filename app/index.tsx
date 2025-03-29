@@ -4,6 +4,7 @@ import Metrics from "../constants/Metrics"
 import { FlatList } from "react-native-gesture-handler"
 import ExpenseCard from "../components/ExpenseCard"
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6"
+import { router } from "expo-router"
 
 export default function index() {
   const [total, setTotal] = useState<number>(0)
@@ -29,6 +30,10 @@ export default function index() {
     },
   ]
 
+  const handleCreate = () => {
+    router.navigate("/new")
+  }
+
   // TODO: Change to just fetch total from backend
   useEffect(() => {
     const sum = expenses.reduce((acc, item) => acc + item.amount, 0)
@@ -46,6 +51,7 @@ export default function index() {
         <Text style={style.total}>Total Expenses:</Text>
         <Text style={style.amount}>${total}</Text>
       </View>
+
       {/* Divider */}
       <View
         style={{
@@ -56,15 +62,17 @@ export default function index() {
           alignSelf: "center",
         }}
       />
+
       {/* Content */}
       <FlatList
         data={expenses}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <ExpenseCard {...item} />}
       />
+
       {/* Add button */}
       <View style={style.addButtonContainer}>
-        <TouchableOpacity style={style.addButton}>
+        <TouchableOpacity style={style.addButton} onPress={handleCreate}>
           <FontAwesome6 name="add" size={24} color="black" />
         </TouchableOpacity>
       </View>
