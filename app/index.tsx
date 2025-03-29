@@ -4,6 +4,7 @@ import Metrics from "./constants/Metrics"
 import { IconSymbol } from "@/app-example/components/ui/IconSymbol.ios"
 import { FlatList } from "react-native-gesture-handler"
 import ExpenseCard from "./components/ExpenseCard"
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6"
 
 export default function index() {
   const [total, setTotal] = useState<number>(0)
@@ -65,11 +66,8 @@ export default function index() {
       {/* Add button */}
       <View style={style.addButtonContainer}>
         <TouchableOpacity style={style.addButton}>
-          <IconSymbol
-            color="#808080"
-            name="chevron.left.forwardslash.chevron.right"
-          />
-        </TouchableOpacity>{" "}
+          <FontAwesome6 name="add" size={24} color="black" />
+        </TouchableOpacity>
       </View>
     </View>
   )
@@ -92,7 +90,7 @@ const style = StyleSheet.create({
   addButtonContainer: {
     position: "absolute",
     left: "50%",
-    transform: [{ translateX: -Metrics.screenWidth * 0.1 }],
+    transform: [{ translateX: -Metrics.screenWidth * 0.07 }],
     bottom: Metrics.screenHeight * 0.02,
   },
   addButton: {
@@ -100,8 +98,8 @@ const style = StyleSheet.create({
     borderColor: "rgba(0,0,0,0.2)",
     alignItems: "center",
     justifyContent: "center",
-    width: Metrics.screenWidth * 0.2,
-    height: Metrics.screenWidth * 0.2,
+    width: Metrics.screenWidth * 0.14,
+    height: Metrics.screenWidth * 0.14,
     backgroundColor: "#fff",
     borderRadius: Metrics.screenWidth * 0.1,
   },
