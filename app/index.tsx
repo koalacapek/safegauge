@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
-import Metrics from "./constants/Metrics"
+import Metrics from "../constants/Metrics"
 import { IconSymbol } from "@/app-example/components/ui/IconSymbol.ios"
-import { FlatList } from "react-native-gesture-handler"
-import ExpenseCard from "./components/ExpenseCard"
+import { FlatList, ScrollView } from "react-native-gesture-handler"
+import ExpenseCard from "../components/ExpenseCard"
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6"
 
 export default function index() {
@@ -42,27 +42,29 @@ export default function index() {
         flex: 1,
       }}
     >
-      {/* Total expenses */}
-      <View style={style.totalContainer}>
-        <Text style={style.total}>Total Expenses:</Text>
-        <Text style={style.amount}>${total}</Text>
-      </View>
-      {/* Divider */}
-      <View
-        style={{
-          width: "95%",
-          height: 1,
-          backgroundColor: "black", // Light gray divider
-          marginVertical: Metrics.screenHeight * 0.02, // Spacing above & below
-          alignSelf: "center",
-        }}
-      />
-      {/* Content */}
-      <FlatList
-        data={expenses}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <ExpenseCard {...item} />}
-      />
+      <ScrollView>
+        {/* Total expenses */}
+        <View style={style.totalContainer}>
+          <Text style={style.total}>Total Expenses:</Text>
+          <Text style={style.amount}>${total}</Text>
+        </View>
+        {/* Divider */}
+        <View
+          style={{
+            width: "95%",
+            height: 1,
+            backgroundColor: "black", // Light gray divider
+            marginVertical: Metrics.screenHeight * 0.02, // Spacing above & below
+            alignSelf: "center",
+          }}
+        />
+        {/* Content */}
+        <FlatList
+          data={expenses}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <ExpenseCard {...item} />}
+        />
+      </ScrollView>
       {/* Add button */}
       <View style={style.addButtonContainer}>
         <TouchableOpacity style={style.addButton}>
