@@ -15,7 +15,7 @@ const ExpenseCard = ({ title, description, amount }: ExpenseCardProps) => {
     <TouchableOpacity style={styles.deleteButton}>
       <EvilIcons
         name="trash"
-        size={Metrics.screenHeight * 0.06}
+        size={Metrics.screenHeight * 0.061}
         color="black"
       />
     </TouchableOpacity>
