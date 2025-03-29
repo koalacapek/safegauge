@@ -42,29 +42,27 @@ export default function index() {
         flex: 1,
       }}
     >
-      <ScrollView>
-        {/* Total expenses */}
-        <View style={style.totalContainer}>
-          <Text style={style.total}>Total Expenses:</Text>
-          <Text style={style.amount}>${total}</Text>
-        </View>
-        {/* Divider */}
-        <View
-          style={{
-            width: "95%",
-            height: 1,
-            backgroundColor: "black", // Light gray divider
-            marginVertical: Metrics.screenHeight * 0.02, // Spacing above & below
-            alignSelf: "center",
-          }}
-        />
-        {/* Content */}
-        <FlatList
-          data={expenses}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <ExpenseCard {...item} />}
-        />
-      </ScrollView>
+      {/* Total expenses */}
+      <View style={style.totalContainer}>
+        <Text style={style.total}>Total Expenses:</Text>
+        <Text style={style.amount}>${total}</Text>
+      </View>
+      {/* Divider */}
+      <View
+        style={{
+          width: "95%",
+          height: 1,
+          backgroundColor: "black", // Light gray divider
+          marginVertical: Metrics.screenHeight * 0.02, // Spacing above & below
+          alignSelf: "center",
+        }}
+      />
+      {/* Content */}
+      <FlatList
+        data={expenses}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <ExpenseCard {...item} />}
+      />
       {/* Add button */}
       <View style={style.addButtonContainer}>
         <TouchableOpacity style={style.addButton}>

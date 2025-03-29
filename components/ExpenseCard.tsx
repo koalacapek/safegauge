@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import Metrics from "../constants/Metrics"
 import Swipeable from "react-native-gesture-handler/ReanimatedSwipeable"
 import EvilIcons from "@expo/vector-icons/EvilIcons"
+import { useRouter } from "expo-router"
 
 interface ExpenseCardProps {
   title: string
@@ -11,6 +12,8 @@ interface ExpenseCardProps {
 }
 
 const ExpenseCard = ({ title, description, amount }: ExpenseCardProps) => {
+  const router = useRouter()
+
   const renderRightActions = () => (
     <TouchableOpacity style={styles.deleteButton}>
       <EvilIcons
@@ -22,15 +25,21 @@ const ExpenseCard = ({ title, description, amount }: ExpenseCardProps) => {
   )
   return (
     <Swipeable renderRightActions={renderRightActions}>
-      <View style={styles.card}>
-        <View style={styles.cardHeader}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.amount}>${amount.toFixed(2)}</Text>
+      <TouchableOpacity onPress={() => router.navigate("/ss")}>
+        <View style={styles.card}>
+          <View style={styles.cardHeader}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.amount}>${amount.toFixed(2)}</Text>
+          </View>
+          <Text
+            style={styles.description}
+            numberOfLines={1}
+            ellipsizeMode="tail"
+          >
+            {description}
+          </Text>
         </View>
-        <Text style={styles.description} numberOfLines={1} ellipsizeMode="tail">
-          {description}
-        </Text>
-      </View>
+      </TouchableOpacity>
     </Swipeable>
   )
 }
