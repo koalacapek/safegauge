@@ -48,11 +48,11 @@ const styles = StyleSheet.create({
   card: {
     alignSelf: "center",
     width: Metrics.screenWidth * 0.95,
-    backgroundColor: "#fff",
+    backgroundColor: "white",
     padding: Metrics.screenWidth * 0.03,
     marginVertical: Metrics.screenHeight * 0.009,
     borderRadius: 10,
-    shadowColor: "#000",
+    shadowColor: "black",
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 5,

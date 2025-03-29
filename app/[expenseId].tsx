@@ -8,25 +8,34 @@ import {
   StyleSheet,
   TouchableOpacity,
   ActivityIndicator,
-  Alert,
 } from "react-native"
 import Ionicons from "@expo/vector-icons/Ionicons"
 
 export default function EditExpense() {
   const router = useRouter()
   const { expenseId } = useLocalSearchParams()
+  const isNew = expenseId === "new"
 
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [amount, setAmount] = useState("")
-  const [loading, setLoading] = useState(false)
+
+  // Only want to show loading if need to fetch data first
+  const [loading, setLoading] = useState(!isNew)
 
   useEffect(() => {
-    if (!expenseId) return
+    // If we want to update rather than creating, fetch data
+    if (!isNew) {
+    }
   }, [expenseId])
 
   const handleSave = () => {
     // TODO: Update logic here
+    // If creating, POST
+    if (isNew) {
+    } else {
+      // Else, PUT
+    }
     router.back()
   }
 
