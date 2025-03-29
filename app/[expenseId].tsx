@@ -47,30 +47,37 @@ export default function EditExpense() {
       <TouchableOpacity onPress={handleBack}>
         <Ionicons name="chevron-back" size={24} color="black" />
       </TouchableOpacity>
-      <Text style={styles.label}>Title</Text>
-      <TextInput
-        value={title}
-        onChangeText={setTitle}
-        style={styles.input}
-        placeholder="Enter expense title"
-      />
 
-      <Text style={styles.label}>Description</Text>
-      <TextInput
-        value={description}
-        onChangeText={setDescription}
-        style={styles.input}
-        placeholder="Enter description"
-      />
+      <View>
+        <Text style={styles.label}>Title</Text>
+        <TextInput
+          value={title}
+          onChangeText={setTitle}
+          style={styles.input}
+          placeholder="Enter expense title"
+        />
+      </View>
 
-      <Text style={styles.label}>Amount</Text>
-      <TextInput
-        value={amount}
-        onChangeText={setAmount}
-        style={styles.input}
-        placeholder="Enter amount"
-        keyboardType="decimal-pad"
-      />
+      <View>
+        <Text style={styles.label}>Description</Text>
+        <TextInput
+          value={description}
+          onChangeText={setDescription}
+          style={styles.input}
+          placeholder="Enter description"
+        />
+      </View>
+
+      <View>
+        <Text style={styles.label}>Amount</Text>
+        <TextInput
+          value={amount}
+          onChangeText={setAmount}
+          style={styles.input}
+          placeholder="Enter amount"
+          keyboardType="decimal-pad"
+        />
+      </View>
 
       <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
         <Text style={styles.saveText}>Save</Text>
@@ -99,18 +106,18 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 8,
-    padding: 12,
-    marginTop: 8,
+    padding: Metrics.screenWidth * 0.03,
+    marginTop: Metrics.screenHeight * 0.01,
   },
   saveButton: {
-    marginTop: 40,
-    backgroundColor: "#2e86de",
-    padding: 15,
+    marginTop: Metrics.screenHeight * 0.04,
+    backgroundColor: "blue",
+    padding: Metrics.screenWidth * 0.035,
     borderRadius: 8,
     alignItems: "center",
   },
   saveText: {
-    color: "#fff",
+    color: "white",
     fontSize: 16,
     fontWeight: "600",
   },

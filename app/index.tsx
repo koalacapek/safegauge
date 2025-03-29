@@ -29,6 +29,7 @@ export default function index() {
     },
   ]
 
+  // TODO: Change to just fetch total from backend
   useEffect(() => {
     const sum = expenses.reduce((acc, item) => acc + item.amount, 0)
     setTotal(sum)
